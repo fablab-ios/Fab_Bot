@@ -25,7 +25,7 @@ class FabDB:
                                                       notification.message))
 
     def ticket_is_new(self, ticket: Ticket) -> bool:
-        ret = self._execute_ret("SELECT * FROM tickets where email='%s';" % ticket.email_address)
+        ret = self._execute_ret("SELECT * FROM tickets where ticket_number=%d;" % ticket.number)
         if len(ret) == 0:
             return True
         ret = ret[0]
